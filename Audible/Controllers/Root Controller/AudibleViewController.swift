@@ -39,10 +39,50 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }()
     
+    let pageScrollIndicator: UIPageControl = {
+        
+        let pageControl = UIPageControl()
+        pageControl.pageIndicatorTintColor = .systemGray
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1)
+        pageControl.numberOfPages = 3
+        
+        return pageControl
+        
+    }()
+    
+    let skipNavigation: UIButton = {
+        
+        let skipButton = UIButton()
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        
+        return skipButton
+        
+    }()
+    
+    let nextNavigation: UIButton = {
+        
+        let nextButton = UIButton()
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        
+        return nextButton
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(onBoardingCollectionView)
+        view.addSubview(pageScrollIndicator)
+        view.addSubview(skipNavigation)
+        view.addSubview(nextNavigation)
+        
+        _ = pageScrollIndicator.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+        
+        _ = skipNavigation.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50)
+        
+        _ = nextNavigation.anchor(view.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50)
         
         onBoardingCollectionView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
@@ -50,32 +90,4 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         onBoardingCollectionView.register(PageCell.self, forCellWithReuseIdentifier: AudibleViewController.identifier)
     }
     
-}
-
-// MARK: - Collection view delegate
-
-extension AudibleViewController: UICollectionViewDelegate {
-    
-}
-
-// MARK: - Collection view datasource
-
-extension AudibleViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AudibleViewController.identifier, for: indexPath) as! PageCell
-        
-        let page = pages[indexPath.item]
-        cell.page = page
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
-    }
 }
