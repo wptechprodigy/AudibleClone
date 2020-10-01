@@ -16,6 +16,7 @@
 		0494D1CB252486BC0006517B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494D1CA252486BC0006517B /* PageCell.swift */; };
 		0494D1CD252487750006517B /* PageCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494D1CC252487750006517B /* PageCell+Extensions.swift */; };
 		0494D1D02524AFFC0006517B /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494D1CF2524AFFC0006517B /* PageModel.swift */; };
+		0494D1D2252679820006517B /* AudibleViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494D1D1252679820006517B /* AudibleViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0494D1CA252486BC0006517B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		0494D1CC252487750006517B /* PageCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageCell+Extensions.swift"; sourceTree = "<group>"; };
 		0494D1CF2524AFFC0006517B /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
+		0494D1D1252679820006517B /* AudibleViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudibleViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				0494D1C72523110B0006517B /* UIView+Extensions.swift */,
 				0494D1CC252487750006517B /* PageCell+Extensions.swift */,
+				0494D1D1252679820006517B /* AudibleViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0494D1CD252487750006517B /* PageCell+Extensions.swift in Sources */,
+				0494D1D2252679820006517B /* AudibleViewController+Extensions.swift in Sources */,
 				0494D1D02524AFFC0006517B /* PageModel.swift in Sources */,
 				0494D1B32523044F0006517B /* AudibleViewController.swift in Sources */,
 				0494D1CB252486BC0006517B /* PageCell.swift in Sources */,
