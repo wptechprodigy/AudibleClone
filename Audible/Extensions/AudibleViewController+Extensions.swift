@@ -13,6 +13,14 @@ import UIKit
 
 extension AudibleViewController: UICollectionViewDelegate {
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+        
+        pageScrollIndicator.currentPage = pageNumber
+        
+    }
+    
 }
 
 // MARK: - Collection view datasource
@@ -46,4 +54,5 @@ extension AudibleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+
 }
