@@ -71,6 +71,8 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }()
     
+    var pageControlBottomAnchor: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +81,8 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         view.addSubview(skipNavigation)
         view.addSubview(nextNavigation)
         
-        _ = pageScrollIndicator.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+        // Accesses the bottomAnchor
+        pageControlBottomAnchor = pageScrollIndicator.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)[1]
         
         _ = skipNavigation.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50)
         

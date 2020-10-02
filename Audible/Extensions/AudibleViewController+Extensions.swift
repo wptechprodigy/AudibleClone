@@ -19,6 +19,24 @@ extension AudibleViewController: UICollectionViewDelegate {
         
         pageScrollIndicator.currentPage = pageNumber
         
+        // When we are on the last onboarding screen moving to the actual login page
+        if pageNumber == pages.count {
+            
+            // Animate the scroll indicators (page controls) down off the screen
+            pageControlBottomAnchor?.constant = 40
+            
+        } else {
+            
+            pageControlBottomAnchor?.constant = 0
+            
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+
+            self.view.layoutIfNeeded()
+
+        }, completion: nil)
+        
     }
     
 }
