@@ -19,10 +19,21 @@ extension AudibleViewController: UICollectionViewDelegate {
 
 extension AudibleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages.count
+        return pages.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // When user scroll past the onboarding screens
+        
+        if indexPath.item == pages.count {
+            
+            let loginPage = collectionView.dequeueReusableCell(withReuseIdentifier: AudibleViewController.loginIdentifier, for: indexPath)
+            
+            return loginPage
+            
+        }
+        
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AudibleViewController.identifier, for: indexPath) as! PageCell
         
