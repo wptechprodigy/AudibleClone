@@ -11,6 +11,7 @@ import UIKit
 class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     static let identifier = "CellIdentifier"
+    static let loginIdentifier = "loginIdentifier"
     
     let pages: [Page] = {
         
@@ -39,12 +40,12 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }()
     
-    let pageScrollIndicator: UIPageControl = {
+    lazy var pageScrollIndicator: UIPageControl = {
         
         let pageControl = UIPageControl()
         pageControl.pageIndicatorTintColor = .systemGray
         pageControl.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1)
-        pageControl.numberOfPages = 3
+        pageControl.numberOfPages = self.pages.count + 1
         
         return pageControl
         
@@ -86,8 +87,16 @@ class AudibleViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         onBoardingCollectionView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
-        // Register the collection view cell
+        // Register the collection view cells
+         registerCells()
+        
+    }
+    
+    fileprivate func registerCells() {
+        
         onBoardingCollectionView.register(PageCell.self, forCellWithReuseIdentifier: AudibleViewController.identifier)
+        
+        onBoardingCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: AudibleViewController.loginIdentifier)
     }
     
 }
