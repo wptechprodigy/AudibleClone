@@ -22,19 +22,23 @@ extension AudibleViewController: UICollectionViewDelegate {
         // When we are on the last onboarding screen moving to the actual login page
         if pageNumber == pages.count {
             
-            // Animate the scroll indicators (page controls) down off the screen
+            // Animate the scroll indicators (page controls) down off the screen and the button up off the screen
             pageControlBottomAnchor?.constant = 40
+            skipButtonTopAnchor?.constant = -40
+            nextButtonTopAnchor?.constant = -40
             
         } else {
             
             pageControlBottomAnchor?.constant = 0
+            skipButtonTopAnchor?.constant = 16
+            nextButtonTopAnchor?.constant = 16
             
         }
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
             self.view.layoutIfNeeded()
-
+            
         }, completion: nil)
         
     }
